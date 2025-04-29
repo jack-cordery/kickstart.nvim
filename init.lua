@@ -1,3 +1,4 @@
+--
 --[[
 
 =====================================================================
@@ -163,7 +164,11 @@ vim.opt.confirm = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
---  mapping for macOS as hash doesnt work
+
+-- Finger saving keymaps
+vim.keymap.set('i', '<C-l>', '=')
+vim.keymap.set('i', '<C-p>', '+')
+vim.keymap.set('i', '<C-h>', '-')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -996,6 +1001,7 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.harpoon',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
