@@ -17,16 +17,16 @@ return {
     end, { desc = 'clear harpoon marks' })
 
     -- navigating through marked files (QWERTY)
-    vim.keymap.set('n', '<C-1>', function()
+    vim.keymap.set('n', '<leader>1', function()
       harpoon:list():select(1)
     end) -- one
-    vim.keymap.set('n', '<C-2>', function()
+    vim.keymap.set('n', '<leader>2', function()
       harpoon:list():select(2)
     end) -- two
-    vim.keymap.set('n', '<C-3>', function()
+    vim.keymap.set('n', '<leader>3', function()
       harpoon:list():select(3)
     end) -- three (next to 'o')
-    vim.keymap.set('n', '<C-4>', function()
+    vim.keymap.set('n', '<leader>4', function()
       harpoon:list():select(4)
     end) -- four (close to 't')
 
@@ -49,7 +49,7 @@ return {
         :find()
     end
 
-    vim.keymap.set('n', '<C-e>', function()
+    vim.keymap.set('n', '<leader>e', function()
       toggle_telescope(harpoon:list())
     end, { desc = 'Open harpoon window' })
   end,
