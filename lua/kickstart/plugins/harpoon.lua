@@ -12,7 +12,7 @@ return {
     end, { desc = 'mark current buffer in harpoon (appended in the list)' })
 
     -- clearing the harpoon:list()
-    vim.keymap.set('n', '<leader>ua', function()
+    vim.keymap.set('n', '<leader>c', function()
       harpoon:list():clear()
     end, { desc = 'clear harpoon marks' })
 
