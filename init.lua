@@ -177,6 +177,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Float term binding
+vim.keymap.set('n', '<leader>ft', '<cmd>FloatermNew --name=myfloat --autoclose=2<CR>', { desc = 'Open new [F]loat[T]erm' })
+vim.keymap.set('n', '<leader>tt', '<cmd>FloatermToggle myfloat<CR>', { desc = '[T]oggle floa[t]erm window' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>:q<CR>', { desc = 'exit terminal mode' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -246,6 +251,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'voldikss/vim-floaterm', -- Floating terminal
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
@@ -670,6 +676,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
+        bashls = {},
         gopls = {},
         tailwindcss = {},
         -- pyright = {},
@@ -785,6 +792,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         go = { 'gofmt' },
+        sh = { 'shfmt' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
