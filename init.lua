@@ -4,6 +4,7 @@
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
+        'docker-language-server',
 ========                                    .-----.          ========
 ========         .----------------------.   | === |          ========
 ========         |.-""""""""""""""""""-.|   |-----|          ========
@@ -698,7 +699,8 @@ require('lazy').setup({
             },
           },
         },
-        postgrestools = {},
+        dockerls = {},
+        docker_compose_language_service = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -746,15 +748,16 @@ require('lazy').setup({
         'clangd',
         'clang-format',
         'gopls',
-        'pgformatter',
         'prettierd',
-        'postgrestools',
         'lua-language-server',
         'tailwindcss-language-server',
         'rust-analyzer',
         'prettier',
         'stylua',
         'bash-language-server',
+        'dprint',
+        'dockerls',
+        'docker-compose-language-service',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -822,6 +825,7 @@ require('lazy').setup({
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
         rust = { 'rustfmt' },
+        dockerfile = { 'dprint' },
       },
     },
   },
