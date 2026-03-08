@@ -689,7 +689,20 @@ require('lazy').setup({
         bashls = {},
         gopls = {},
         tailwindcss = {},
-        -- pyright = {},
+        pyright = {
+          settings = {
+            pyright = {
+              -- Using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                -- ignore = { '*' },
+              },
+            },
+          },
+        },
         rust_analyzer = {
           settings = {
             ['rust-analyzer'] = {
@@ -758,6 +771,8 @@ require('lazy').setup({
         'dprint',
         'dockerls',
         'docker-compose-language-service',
+        'pyright',
+        'ruff',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -826,6 +841,14 @@ require('lazy').setup({
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
         rust = { 'rustfmt' },
         dockerfile = { 'dprint' },
+        python = {
+          -- To fix auto-fixable lint errors.
+          'ruff_fix',
+          -- To run the Ruff formatter.
+          'ruff_format',
+          -- To organize the imports.
+          'ruff_organize_imports',
+        },
       },
     },
   },
